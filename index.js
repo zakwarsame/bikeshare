@@ -1,33 +1,51 @@
-const https = require("https"),
-  packageId = "2b44db0d-eea9-442d-b038-79335368ad5a";
+const bikeshare = require("./lib/bikeshare");
+const get = require("./lib/utils/get");
 
-// promise to retrieve the package
-const getPackage = new Promise((resolve, reject) => {
-  https.get(
-    `https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_status`,
-    (response) => {
-      let dataChunks = [];
-      response
-        .on("data", (chunk) => {
-          dataChunks.push(chunk);
-        })
-        .on("end", () => {
-          let data = Buffer.concat(dataChunks);
-          // console.log("end", JSON.parse(data.toString())["data"]);
-          resolve(JSON.parse(data.toString())["data"]);
-        })
-        .on("error", (error) => {
-          reject(error);
-        });
-    }
-  );
-});
+const findBikeStationById = (stationId) => {
+  bikeshare
+    .getStationsInfo()
+    .then((res) => {
+      const station = res.stations.find(
+        (station) => station.station_id == stationId
+      );
+      if (station) {
+        return station;
+      }
+    })
+    .catch((err) => console.error(err));
+};
 
-getPackage
-  .then((pkg) => {
-    // this is the metadata of the package
-    console.log(pkg);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+const findBikeStationByName = (stationName) => {
+  bikeshare
+    .getStationsInfo()
+    .then((res) => {
+      const searchRegex = new RegExp(stationName.split(" ").join(".*"), "i");
+      const matchingStations = res.stations.filter((station) =>
+        searchRegex.test(station.name)
+      );
+      if (matchingStations.length > 0) {
+        return matchingStations;
+      } else {
+        throw new Error("No matching station found");
+      }
+    })
+    .catch((err) => console.error(err));
+};
+
+const getSystemInfo = () => {
+  bikeshare
+    .getSystemInfo()
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => console.error(err));
+};
+
+const getSystemPricingPlans = () => {
+  bikeshare
+    .getSystemPricingPlans()
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => console.error(err));
+};

@@ -27,6 +27,8 @@ const findBikeStationByName = (stationName) => {
     })
     .catch((err) => console.error(err));
 };
+
+findBikeStationByName("Toronto Eaton Centre");
 ```
 
 Example response

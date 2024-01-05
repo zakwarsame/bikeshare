@@ -46,5 +46,3 @@ const displaySystemPricingPlans = () => {
     })
     .catch((err) => console.error(err));
 };
-
-findBikeStationByName("Toronto Eaton Centre");

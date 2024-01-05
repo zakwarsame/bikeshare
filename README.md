@@ -2,14 +2,16 @@
 
 > A lightweight Node js library to simplify the Toronto bike share API
 
-Inspired by: https://github.com/kshvmdn/bikeshare (The API in that repo no longer works)
+## Installation
+
+`npm install bike-share-lib`
 
 ## Usage
 
 #### Find a station by Name
 
 ```es6
-const bikeshare = require("./lib/bikeshare");
+const bikeshare = require("bike-share-lib/lib/bikeshare");
 
 const findBikeStationByName = (stationName) => {
   bikeshare
@@ -63,7 +65,7 @@ See more in `index.js`
 
 ## Misc
 
-### List of all original endpionts
+### List of all original endpoints
 
 Available [here](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2b44db0d-eea9-442d-b038-79335368ad5a/resource/b69873a1-c180-4ccd-a970-514e434b4971/download/bike-share-gbfs-general-bikeshare-feed-specification.json)
 
@@ -99,3 +101,7 @@ Available [here](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2b44db0
   }
 }
 ```
+
+Sourced via [Open Data - City of Toronto](https://www.toronto.ca/city-government/data-research-maps/open-data/)
+
+Inspired by: https://github.com/kshvmdn/bikeshare (The API in that repo no longer works)

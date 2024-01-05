@@ -60,3 +60,42 @@ See more in `index.js`
 ## Testing
 
 `npm test tests/bikeshare.test.js`
+
+## Misc
+
+### List of all original endpionts
+
+Available [here](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/2b44db0d-eea9-442d-b038-79335368ad5a/resource/b69873a1-c180-4ccd-a970-514e434b4971/download/bike-share-gbfs-general-bikeshare-feed-specification.json)
+
+```json
+{
+  "last_updated": 1563373889,
+  "ttl": 19,
+  "data": {
+    "en": {
+      "feeds": [
+        {
+          "name": "system regions",
+          "url": "https://tor.publicbikesystem.net/ube/gbfs/v1/en/system_regions"
+        },
+        {
+          "name": "system_information",
+          "url": "https://tor.publicbikesystem.net/ube/gbfs/v1/en/system_information"
+        },
+        {
+          "name": "station_information",
+          "url": "https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_information"
+        },
+        {
+          "name": "station_status",
+          "url": "https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_status"
+        },
+        {
+          "name": "system_pricing_plans",
+          "url": "https://tor.publicbikesystem.net/ube/gbfs/v1/en/system_pricing_plans"
+        }
+      ]
+    }
+  }
+}
+```

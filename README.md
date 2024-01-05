@@ -54,3 +54,7 @@ Example response
 ```
 
 See more in `index.js`
+
+## Testing
+
+`npm test tests/bikeshare.test.js`

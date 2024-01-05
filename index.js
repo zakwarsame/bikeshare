@@ -9,6 +9,7 @@ const findBikeStationById = (stationId) => {
         (station) => station.station_id == stationId
       );
       if (station) {
+        console.log(station);
         return station;
       }
     })
@@ -24,6 +25,7 @@ const findBikeStationByName = (stationName) => {
         searchRegex.test(station.name)
       );
       if (matchingStations.length > 0) {
+        console.log(matchingStations);
         return matchingStations;
       } else {
         throw new Error("No matching station found");
@@ -32,20 +34,17 @@ const findBikeStationByName = (stationName) => {
     .catch((err) => console.error(err));
 };
 
-const getSystemInfo = () => {
+const getSystemInfo = bikeshare.getSystemInfo;
+
+const getSystemPricingPlans = bikeshare.getSystemPricingPlans;
+
+const displaySystemPricingPlans = () => {
   bikeshare
-    .getSystemInfo()
+    .getSystemPricingPlans()
     .then((res) => {
-      return res;
+      console.log(res);
     })
     .catch((err) => console.error(err));
 };
 
-const getSystemPricingPlans = () => {
-  bikeshare
-    .getSystemPricingPlans()
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => console.error(err));
-};
+findBikeStationByName("Toronto Eaton Centre");

@@ -6,7 +6,7 @@ Inspired by: https://github.com/kshvmdn/bikeshare (The API in that repo no longe
 
 ## Usage
 
-#### Find a station by ID
+#### Find a station by Name
 
 ```es6
 const bikeshare = require("./lib/bikeshare");

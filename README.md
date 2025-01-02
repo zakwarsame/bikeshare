@@ -1,6 +1,6 @@
 # bike-share-lib
 
-> A lightweight Node js library to simplify the Toronto bike share API
+A lightweight Node js library to simplify the Toronto bike share API
 
 ## Installation
 
